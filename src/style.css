@@ -65,8 +65,7 @@ i {
 input[type="text"] {
   width: 100%;
   height: 2rem;
-  border: none;
-  background: none;
+  
 }
 
 ::placeholder {
