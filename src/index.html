@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <title>ToDo App</title>
+  </head>
+  <body>
+    <div class="content" id="todo-list">
+      <div class="todo-header">
+        <h4 class="header">Today's To Do</h4>
+        <button class="reload">
+          <i class="uil uil-sync"></i>
+        </button>
+      </div>
+      <hr />
+
+      <div class="form">
+        <form class="todo-form" id="new-todo-form">
+          <label for="addlist">
+            <input
+              type="text"
+              name="addlist"
+              id="addlist"
+              placeholder="Add to your list..."
+            />
+          </label>
+          <button type="submit" class="btn-submit">
+            <i class="uil uil-enter"></i>
+          </button>
+        </form>
+      </div>
+      <hr />
+      <div class="wrapper">
+        <div class="todo-content">
+          <div class="content-list">
+            <input type="checkbox" name="checkbox" id="checkbox" />
+            <p class="todo-title">wash the dishes</p>
+            <div class="btn-container">
+              <button class="edit"><i class="uil uil-ellipsis-v"></i></button>
+              <button class="delete hide">
+                <i class="uil uil-trash-alt"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="task-done">Clear all completed</div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
