@@ -1,29 +1,30 @@
-import "./style.css";
+import './style.css';
+
 const myTasks = [
   {
-    description: "Build no profit projects",
+    description: 'Build no profit projects',
     completed: false,
     index: 0,
   },
   {
-    description: "Nature walk",
+    description: 'Nature walk',
     completed: false,
     index: 1,
   },
   {
-    description: "Learn new languages",
+    description: 'Learn new languages',
     completed: false,
     index: 2,
   },
   {
-    description: "Make pastries",
+    description: 'Make pastries',
     completed: false,
     index: 3,
   },
 ];
 class TodoList {
   static addMyTask(task) {
-    const wrapper = document.querySelector(".wrapper");
+    const wrapper = document.querySelector('.wrapper');
 
     wrapper.innerHTML += `
         <div class="todo-content">
