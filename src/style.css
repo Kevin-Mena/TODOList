@@ -67,6 +67,7 @@ input[type="text"] {
   height: 2rem;
   border: none;
   background: none;
+  flex: 1 1 0%;
 }
 
 ::placeholder {
@@ -80,6 +81,13 @@ input[type="text"] {
   justify-content: space-between;
   align-items: center;
   height: 4rem;
+}
+
+.todo-content,
+.form,
+.todo-header {
+  border-bottom: 1px solid rgb(211, 200, 200);
+  box-shadow: var(--shadow);
 }
 
 .content-list {
@@ -97,6 +105,10 @@ input[type="text"] {
   display: block;
 }
 
+.show-container {
+  visibility: visible;
+}
+
 input[type="checkbox"] {
   border: none;
   outline: none;
@@ -107,6 +119,7 @@ input[type="checkbox"] {
 .todo-title {
   margin-left: 1rem;
   font-size: 1.5rem;
+  border: none;
 }
 
 .done {
@@ -121,4 +134,15 @@ input[type="checkbox"] {
   background-color: var(--grey);
   font-size: 1.22rem;
   color: grey;
+}
+
+#errorMsg {
+  color: rgb(244, 20, 20);
+  font-size: 1rem;
+  height: 1rem;
+  display: none;
+}
+
+.edit-color {
+  background-color: var(--yellow);
 }
