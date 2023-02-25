@@ -1,72 +1,132 @@
 import './style.css';
-import TODO from './todoclass.js';
+// SELECT REQUIRED ELEMENTS
+const todoInput = document.querySelector('#addlist');
+const todoForm = document.querySelector('.todo-form');
+const todoWrapper = document.querySelector('.wrapper');
+const deleteCompleted = document.querySelector('.remove');
+const addLocalStorage = (todo) => {
+  const todos = JSON.parse(localStorage.getItem('todos')) || [];
+  todos.push(todo);
+  localStorage.setItem('todos', JSON.stringify(todos));
+};
 
-const form = document.querySelector('#new-todo-form');
-const wrapper = document.querySelector('.wrapper');
-const errMsg = document.querySelector('#errorMsg');
-const todos = JSON.parse(localStorage.getItem('todos')) || [];
-function showTodo(task) {
-  wrapper.innerHTML += `
-         <div class="todo-content">
-          <div class="content-list">
-            <input type="checkbox" name="checkbox" id="checkbox" />
-            <input type="text" class="todo-title" value="${task.description}" readonly></input>
-            <div class="btn-container">
-              <button class="edit"><i class="uil uil-ellipsis-v"></i></button>
-              <button class="delete hide">
-                <i class="uil uil-trash-alt"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-    `;
-  const btnEdit = wrapper.querySelector('.edit');
-  const btnDelete = wrapper.querySelector('.delete');
-  btnDelete.addEventListener('click', (e) => {
-    e.target.parentElement.parentElement.parentElement.parentElement.remove();
-    Storage.removeList();
-    errMsg.style.display = 'block';
-    errMsg.innerHTML = 'Deleted successfully!';
-    errMsg.style.color = 'green';
-    setTimeout(() => errMsg.remove(), 3000);
-    form.reset();
-    showTodo();
-  });
-  btnEdit.addEventListener('click', () => {
-    btnDelete.classList.toggle('hide');
-    const editList = wrapper.querySelector('input[type=text]');
-    editList.readOnly = false;
-    editList.focus();
-    editList.addEventListener('blur', (e) => {
-      editList.type = 'text';
-      editList.setAttribute('readonly', true);
-      wrapper.content = e.target.value;
-      errMsg.style.display = 'block';
-      errMsg.innerHTML = 'Edited successfully!';
-      errMsg.style.color = 'green';
-      setTimeout(() => errMsg.remove(), 3000);
-    });
-  });
-}
-
-form.addEventListener('submit', (e) => {
+// ADD TODO
+const addTodo = (e) => {
   e.preventDefault();
-  const id = todos.length + 1;
-  const todoInput = document.querySelector('#addlist').value;
-  const newTask = new TODO(todoInput, false, id);
-  if (todoInput === '') {
-    errMsg.style.display = 'block';
-    errMsg.innerHTML = 'Cannot add empty list!';
-    errMsg.style.color = 'red';
-  } else {
-    todos.push(newTask);
-    localStorage.setItem('todos', JSON.stringify(todos));
-    showTodo(newTask);
-    form.reset();
-    errMsg.style.display = 'block';
-    errMsg.innerHTML = 'Added successfully!';
-    errMsg.style.color = 'green';
-    form.reset();
+  const todo = todoInput.value;
+  if (todo) {
+    const todos = JSON.parse(localStorage.getItem('todos')) || [];
+    const id = todos.length + 1;
+    const completed = false;
+    addLocalStorage(id, todo, completed);
+    const todoItem = document.createElement('div');
+    todoItem.className = `todo-item${id}`;
+    todoItem.setAttribute('id', 'new-todo');
+    todoItem.innerHTML = `<input type="checkbox" class="todo-check">
+          <input type="text" class="todo-text" value="${todo}" disabled>
+          <button class="edit">Edit</button>
+          <button class="delete">Delete</button>`;
+    todoWrapper.appendChild(todoItem);
+    todoInput.value = '';
   }
-  setTimeout(() => errMsg.display, 3000);
-});
+};
+// REMOVE FROM LOCAL STORAGE
+const removeLocalStorage = (id) => {
+  let todos = JSON.parse(localStorage.getItem('todos')) || [];
+  todos = todos.filter((todo) => todo.id !== id);
+  localStorage.setItem('todos', JSON.stringify(todos));
+};
+// DELETE TODO
+const deleteTodo = (e) => {
+  if (e.target.classList.contains('delete')) {
+    removeLocalStorage(e.target.parentElement.classList[1]);
+    e.target.parentElement.remove();
+  }
+};
+
+// CHECK TODO
+const checkTodo = (e) => {
+  if (e.target.className === 'todo-check') {
+    const id = e.target.parentElement.classList[1];
+    const isChecked = e.target.checked;
+
+    if (isChecked) {
+      e.target.nextElementSibling.style.textDecoration = 'line-through';
+    } else {
+      e.target.nextElementSibling.style.textDecoration = 'none';
+    }
+    let todos = JSON.parse(localStorage.getItem('todos')) || [];
+    todos = todos.map((todo) => {
+      if (todo.id === id) {
+        todo.completed = isChecked;
+      }
+      return todo;
+    });
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
+};
+
+// GET TODO
+const getTodo = () => {
+  const todos = JSON.parse(localStorage.getItem('todos')) || [];
+  todos.forEach((todo) => {
+    const todoItem = document.createElement('div');
+    todoItem.className = `todo-item${todo.id}`;
+    todoItem.innerHTML = `<input type="checkbox" class="todo-check" ${
+      todo.completed ? 'checked' : ''
+    }>
+          <input type="text" class="todo-text ${
+  todo.completed ? 'done' : ''
+}" value="${todo}" disabled/>
+          <button class="edit">Edit</button>
+          <button class="delete">Delete</button>`;
+    todoWrapper.appendChild(todoItem);
+    todoInput.value = '';
+  });
+};
+// REMOVE DONE TODOS
+const removeDone = (e) => {
+  if (e.target.classList.contains('remove')) {
+    let todos = JSON.parse(localStorage.getItem('todos')) || [];
+    todos = todos.filter((todo) => todo.checked === true);
+    localStorage.setItem('todos', JSON.stringify(todos));
+    todoWrapper.innerHTML = '';
+    getTodo();
+  }
+};
+
+// EDIT LOCAL STORAGE
+const editLocalStorage = (id) => {
+  let todos = JSON.parse(localStorage.getItem('todos')) || [];
+  todos = todos.map((todo) => {
+    if (todo.id === id) {
+      todo.text = todo;
+    }
+    return todo;
+  });
+  localStorage.setItem('todos', JSON.stringify(todos));
+};
+
+// EDIT TODO
+const editTodo = (e) => {
+  if (e.target.className === 'edit') {
+    const todoText = e.target.parentElement.querySelector('.todo-text');
+    const id = e.target.parentElement.classList[1];
+    if (todoText.disabled) {
+      todoText.disabled = false;
+      e.target.textContent = 'Save';
+    } else {
+      todoText.disabled = true;
+      e.target.textContent = 'Edit';
+      editLocalStorage(id, todoText.value);
+    }
+  }
+};
+
+// EVENT LISTENER FOR TODO
+todoForm.addEventListener('submit', addTodo);
+todoWrapper.addEventListener('click', deleteTodo);
+todoWrapper.addEventListener('click', checkTodo);
+todoWrapper.addEventListener('click', editTodo);
+window.addEventListener('DOMContentloaded', getTodo);
+deleteCompleted.addEventListener('click', removeDone);
