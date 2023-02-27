@@ -71,7 +71,7 @@
 
 ## 🚀 Live Demo <a name="live-demo" ></a>
 
-- [Live Demo Link](https://kevin-mena.github.io/TODOList/dist/)
+- [Live Demo Link](https://kevin-mena.github.io/TODOList)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
