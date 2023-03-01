@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack serve",
-     "start": "webpack serve --open"
+    "start": "webpack serve --open",
+    "test": "jest",
+    "watch": "jest --watch *.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +24,8 @@
     "eslint-plugin-import": "^2.27.5",
     "hint": "^2.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^29.4.3",
+    "jest-environment-jsdom": "^29.4.3",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
