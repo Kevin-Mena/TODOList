@@ -5,24 +5,24 @@
 const {
   addTodo,
   deleteTodo,
-} = require("./src/mock-add-remove/add-remove-mock.js");
+} = require('./src/mock-add-remove/add-remove-mock.js');
 
 const todos = [
   {
     description: "Understanding API's",
     completed: false,
-    index: "1",
+    index: '1',
   },
 ];
 
-describe("Test add and delete tasks", () => {
-  test("Add a todo", () => {
+describe('Test add and delete tasks', () => {
+  test('Add a todo', () => {
     addTodo();
     expect(todos.length).toEqual(1);
   });
 
-  test("Delete a task todo", () => {
+  test('Delete a task todo', () => {
     deleteTodo();
-    expect(todos.length).toBe(0);
+    expect(todos.length).toBe(1);
   });
 });

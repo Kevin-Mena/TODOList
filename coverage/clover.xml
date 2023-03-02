@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1677790206066" clover="3.2.0">
-  <project timestamp="1677790206067" name="All files">
+<coverage generated="1677799349022" clover="3.2.0">
+  <project timestamp="1677799349023" name="All files">
     <metrics statements="24" coveredstatements="24" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3" elements="29" coveredelements="28" complexity="0" loc="24" ncloc="24" packages="1" files="1" classes="1"/>
-    <file name="add-remove-mock.js" path="C:\Microverse All\Microverse New\Testing on Kevin's project\TODOList\src\mock-add-remove\add-remove-mock.js">
+    <file name="add-remove-mock.js" path="C:\Users\Kevin Okoth\Desktop\New folder(5)\New folder\TODOList\src\mock-add-remove\add-remove-mock.js">
       <metrics statements="24" coveredstatements="24" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
