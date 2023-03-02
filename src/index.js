@@ -4,6 +4,7 @@ const todoInput = document.querySelector("#addlist");
 const todoForm = document.querySelector(".todo-form");
 const todoWrapper = document.querySelector(".wrapper");
 const deleteCompleted = document.querySelector(".remove");
+
 const addLocalStorage = (todo) => {
   const todos = JSON.parse(localStorage.getItem("todos")) || [];
   todos.push(todo);
@@ -131,4 +132,4 @@ todoWrapper.addEventListener("click", editTodo);
 window.addEventListener("DOMContentloaded", getTodo);
 deleteCompleted.addEventListener("click", removeDone);
 
-module.exports = addTodo;
+(module.exports = addTodo), deleteTodo;

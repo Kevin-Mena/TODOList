@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "build": "webpack",
     "dev": "webpack serve",
@@ -10,13 +13,17 @@
     "test": "jest",
     "watch": "jest --watch *.js"
   },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.17.8",
-    "@babel/preset-env": "^7.16.11",
+    "@babel/core": "^7.21.0",
+    "@babel/plugin-syntax-decorators": "^7.21.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.21.2",
+    "@babel/preset-env": "^7.20.2",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^29.4.3",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.7.1",
     "eslint": "^7.32.0",
