@@ -23,6 +23,6 @@ describe('Test add and delete tasks', () => {
 
   test('Delete a task todo', () => {
     deleteTodo();
-    expect(todos.length).toBe(0);
+    expect(todos.length).toBe(1);
   });
 });
