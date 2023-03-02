@@ -10,10 +10,9 @@
     "build": "webpack",
     "dev": "webpack serve",
     "start": "webpack serve --open",
-    "test": "jest",
+    "test": "jest --coverage",
     "watch": "jest --watch *.js"
   },
-  
   "keywords": [],
   "author": "",
   "license": "ISC",

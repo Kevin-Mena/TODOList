@@ -131,3 +131,5 @@ todoWrapper.addEventListener('click', checkTodo);
 todoWrapper.addEventListener('click', editTodo);
 window.addEventListener('DOMContentloaded', getTodo);
 deleteCompleted.addEventListener('click', removeDone);
+
+module.exports = addTodo;
