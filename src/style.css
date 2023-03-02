@@ -184,8 +184,9 @@ input[type="checkbox"] {
   border: none;
   cursor: pointer;
 }
+
 @media screen and (min-width: 768px) {
   .content {
-      width: 40%;
-    }
+    width: 40%;
+  }
 }
