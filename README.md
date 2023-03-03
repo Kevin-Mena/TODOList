@@ -35,7 +35,7 @@
 
 # 📖 [ToDo List] <a name="about-project"></a>
 
-\*\*[ToDo List] is a simple app for keeping track simple tasks to be done by an individual.
+\*\*[ToDo List] is a simple app for keeping track of simple tasks to be done by an individual.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -147,7 +147,7 @@ Thanks to everyone whose idea and codebase was used in this project🙏
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 📝 License <a name="license">MIT License</a>
+## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
 
