@@ -35,7 +35,7 @@
 
 # 📖 [ToDo List] <a name="about-project"></a>
 
-\*\*[ToDo List] is a simple app for keeping track simple tasks to be done by an individual.
+\*\*[ToDo List] is a simple app for keeping track of simple tasks to be done by an individual.
 
 ## 🛠 Built With <a name="built-with"></a>
 
