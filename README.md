@@ -70,7 +70,7 @@
 
 ## 🚀 Live Demo <a name="live-demo" ></a>
 
-- [Live Demo](https://kevin-mena.github.io/TODOList/)
+- [Live Demo](https://todo-listapp-js.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
